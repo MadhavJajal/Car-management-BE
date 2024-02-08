@@ -9,7 +9,6 @@ router.post("/login", async (req, res) => {
   const { email, password } = req.body.values;
   const existingUser = await collection.findOne({ email });
   if (existingUser) {
-    console.log('Existing User Found', existingUser, collection);
     bcrypt.compare(password, existingUser.password, (err, response) => {
       if (response) {
         const token = jwt.sign(
