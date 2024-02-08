@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const userRoutes = require('./routes/userRoutes')
+const categoryRoutes = require('./routes/categoryRoutes')
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded());
@@ -16,6 +17,7 @@ app.use(
 
 app.use(cookieParser());
 app.use("/users", userRoutes);
+app.use("/categories", categoryRoutes);
 
 
 const port = 5000;
